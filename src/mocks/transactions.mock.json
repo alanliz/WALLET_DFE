@@ -1,0 +1,12 @@
+[
+    { "concept": "Groceries", "amount": 50.25, "type": "expense", "label": "food_n_drinks" },
+    { "concept": "Monthly Salary", "amount": 2500.00, "type": "income", "label": "financial_expenses" },
+    { "concept": "Bus Ticket", "amount": 2.5, "type": "expense", "label": "transportation" },
+    { "concept": "Netflix Subscription", "amount": 15.99, "type": "expense", "label": "life_n_entertainment" },
+    { "concept": "Laptop Purchase", "amount": 1200.00, "type": "expense", "label": "shopping" },
+    { "concept": "Stock Dividend", "amount": 200.00, "type": "income", "label": "financial_expenses" },
+    { "concept": "Dinner with Friends", "amount": 75.00, "type": "expense", "label": "food_n_drinks" },
+    { "concept": "Uber Ride", "amount": 12.75, "type": "expense", "label": "transportation" },
+    { "concept": "Gift for Mom", "amount": 100.00, "type": "expense", "label": "shopping" },
+    { "concept": "Part-Time Job Payment", "amount": 500.00, "type": "income", "label": "financial_expenses" }
+]
