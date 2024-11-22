@@ -6,6 +6,10 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  fetch('http://localhost:3000/api/transactions/')
+    .then(data => data.json())
+    .then(data => console.log(data))
+
   return (
     <>
       <div>

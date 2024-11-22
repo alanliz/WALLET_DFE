@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node index.js",
+    "dev": "node index.js",
     "seed": "node src/seeds/transactions.seed.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-validator": "^7.2.0",

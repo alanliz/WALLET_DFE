@@ -1,6 +1,6 @@
 const express = require('express');
 const { body, param, validationResult } = require('express-validator');
-const transactionsRepo = require('../db/transactionsRepository');
+const transactionsRepo = require('../db/dbRepository');
 
 const router = express.Router();
 
