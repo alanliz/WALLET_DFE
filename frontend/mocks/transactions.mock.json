@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "concept": "Salario",
+    "amount": 4000,
+    "type": "income",
+    "date": "2024-01-20"
+
+  },
+  {
+    "id": 2,
+    "concept": "Comida china",
+    "amount": 200,
+    "type": "expense",
+    "label": "food_n_drinks",
+    "date": "2024-01-20"
+  },
+  {
+    "id": 3,
+    "concept": "Ropa navideña",
+    "amount": 1500,
+    "type": "expense",
+    "label": "shopping",
+    "date": "2024-01-20"
+  },
+  {
+    "id": 4,
+    "concept": "Regalos",
+    "amount": 500,
+    "type": "expense",
+    "label": "shopping",
+    "date": "2024-01-20"
+  },
+  {
+    "id": 5,
+    "concept": "Gasolina",
+    "amount": 1000,
+    "type": "expense",
+    "label": "transportation",
+    "date": "2024-01-20"
+  },
+  {
+    "id": 6,
+    "concept": "Netflix",
+    "amount": 140,
+    "type": "expense",
+    "label": "life_n_entertainment",
+    "date": "2024-01-20"
+  },
+  {
+    "id": 7,
+    "concept": "Semestre uni",
+    "amount": 500,
+    "type": "expense",
+    "label": "financial_expenses",
+    "date": "2024-01-20"
+  }
+]
