@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { number, z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormItem, FormLabel, FormMessage, FormField } from "./ui/form"
 import { Input } from "./ui/input"
@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { CATEGORIES } from "../constants"
 import { Button } from "./ui/button"
 import { useEffect } from "react"
+import { numbersMiddleware } from "../lib/numberState.middleware"
 
 export function CreateTransactionFormSheet({ trigger, onCreateTransaction }) {
 
@@ -77,7 +78,10 @@ export function CreateTransactionFormSheet({ trigger, onCreateTransaction }) {
                     <FormItem>
                       <FormLabel>Concepto</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...field}
+
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -91,9 +95,12 @@ export function CreateTransactionFormSheet({ trigger, onCreateTransaction }) {
 
                   return (
                     <FormItem>
-                      <FormLabel>Cantidad</FormLabel>
+                      <FormLabel>Monto</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field}
+                          type="number"
+                          {...numbersMiddleware(1000000, false, true, 2)}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

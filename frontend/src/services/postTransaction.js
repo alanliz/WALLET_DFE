@@ -9,5 +9,9 @@ export function postTransaction({ concept, amount, type, label }) {
     },
     body: JSON.stringify({ concept, amount, type, label })
   })
+    .then(res => {
+      if (!res.ok) res.json().then(err => { throw err })
+      return res.json()
+    })
 
 }
