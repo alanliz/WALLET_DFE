@@ -50,12 +50,14 @@ router.post(
   body('concept').isString().isLength({ max: 64 }).withMessage('Concept must be a string with a maximum length of 64 characters'),
   body('amount').isFloat({ gt: 0 }).withMessage('Amount must be a positive number'),
   body('type').isIn(['income', 'expense']).withMessage("Type must be 'income' or 'expense'"),
-  body('label').isIn(['food_n_drinks', 'shopping', 'transportation', 'life_n_entertainment', 'financial_expenses']).withMessage('Invalid label'),
+  body('label').isIn(['food_n_drinks', 'shopping', 'transportation', 'life_n_entertainment', 'financial_expenses', '']).withMessage('Invalid label'),
   handleValidationErrors,
   async (req, res) => {
     try {
       const { concept, amount, type, label } = req.body;
-      const newTransaction = await transactionsRepo.createTransaction({ concept, amount, type, label });
+      console.log(req.body)
+      const newTransaction = await transactionsRepo.createTransaction({ concept, amount, type, label: type == 'income' ? null : label });
+      console.log(newTransaction)
       res.status(201).json(newTransaction);
     } catch (error) {
       console.error(error);

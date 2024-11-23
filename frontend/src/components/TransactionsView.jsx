@@ -1,9 +1,7 @@
-import { useTransactions } from "../hooks/useTransactions"
 import { TransactionItem } from "./TransactionItem"
 
-export function TransactionsView() {
+export function TransactionsView({ transactions }) {
 
-  const { transactions, isLoading, error, refreshTransactions } = useTransactions()
 
 
   const handleDelete = (id) => {

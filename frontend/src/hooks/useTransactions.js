@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTransactions } from "../services/getTransactions";
+import { postTransaction } from "../services/postTransaction";
 
 export function useTransactions() {
   const [transactions, setTransactions] = useState([])
@@ -15,12 +16,26 @@ export function useTransactions() {
       .finally(() => setIsLoading(false))
   }
 
+  const createTransaction = (transaction) => {
+    setIsLoading(true)
+    postTransaction(transaction)
+      .then(newTransaction => {
+        setTransactions([...transactions, newTransaction])
+      })
+      .catch(err => {
+        setError(err)
+      })
+      .finally(() => setIsLoading(false))
+
+  }
+
+
   useEffect(() => {
     refreshTransactions()
   }, [])
 
   return {
-    transactions, isLoading, error, refreshTransactions
+    transactions, isLoading, error, refreshTransactions, createTransaction
 
   }
 }
