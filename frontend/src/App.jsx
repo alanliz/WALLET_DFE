@@ -3,6 +3,7 @@ import { CreateTransactionFormSheet } from "./components/CreateTransactionFormSh
 import { TransactionsView } from "./components/TransactionsView"
 import { Button } from "./components/ui/button"
 import { useTransactions } from "./hooks/useTransactions"
+import { Plus } from "lucide-react"
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         <TransactionsView transactions={transactions} />
       </React.Suspense>
       <CreateTransactionFormSheet onCreateTransaction={handleCreateTransaction} trigger={
-        <Button>Crear nueva transacción</Button>
+        <Button className="fixed bottom-3 right-3"><Plus />Crear transacción</Button>
       } />
     </main >
   )
