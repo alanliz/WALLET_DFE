@@ -1,15 +1,15 @@
-import { useTransactions } from "../hooks/useTransactions";
 import { TransactionItem } from "./TransactionItem";
 
-export function TransactionsView() {
-  const { transactions, isLoading, error, refreshTransactions } = useTransactions();
+export function TransactionsView({ transactions, isLoading, error, onEdit, onDelete }) {
 
   const handleDelete = (id) => {
-    console.log("Eliminar transacción:", id);
+
+    onDelete(id)
   };
 
-  const handleEdit = (id) => {
-    console.log("Editar transacción:", id);
+  const handleEdit = (id, concept, amount, label) => {
+
+    onEdit(id, concept, amount, label)
   };
 
   if (isLoading) return <p>Cargando transacciones...</p>;
@@ -23,6 +23,7 @@ export function TransactionsView() {
         <div className="w-full max-w-2xl space-y-6">
           {transactions.map((transaction) => (
             <TransactionItem
+
               key={transaction.id}
               {...transaction}
               onDelete={handleDelete}

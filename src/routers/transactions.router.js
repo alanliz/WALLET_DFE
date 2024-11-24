@@ -72,13 +72,17 @@ router.put(
   param('id').isInt({ gt: 0 }).withMessage('ID must be a positive integer'),
   body('concept').optional().isString().isLength({ max: 64 }).withMessage('Concept must be a string with a maximum length of 64 characters'),
   body('amount').optional().isFloat({ gt: 0 }).withMessage('Amount must be a positive number'),
-  body('type').optional().isIn(['income', 'expense']).withMessage("Type must be 'income' or 'expense'"),
-  body('label').optional().isIn(['food_n_drinks', 'shopping', 'transportation', 'life_n_entertainment', 'financial_expenses']).withMessage('Invalid label'),
+  body('label').optional().isIn(['food_n_drinks', 'shopping', 'transportation', 'life_n_entertainment', 'financial_expenses', '']).withMessage('Invalid label'),
   handleValidationErrors,
   async (req, res) => {
     try {
       const id = parseInt(req.params.id, 10);
       const updates = req.body;
+
+
+      if (updates.label == '') {
+        updates.label = null
+      }
 
       const updated = await transactionsRepo.updateTransactionById(id, updates);
       if (!updated) {

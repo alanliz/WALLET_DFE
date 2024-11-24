@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { getTransactions } from "../services/getTransactions";
 import { postTransaction } from "../services/postTransaction";
+import { putTransaction } from "../services/putTransaction";
+import {
+  deleteTransaction as deleteTransactionService
+} from "../services/deleteTransaction";
 
 export function useTransactions() {
   const [transactions, setTransactions] = useState([])
@@ -29,13 +33,31 @@ export function useTransactions() {
 
   }
 
+  const updateTransaction = ({ id, concept, amount, label }) => {
+    setIsLoading(true)
+    putTransaction({ id, concept, amount, label })
+      .then(() => {
+        refreshTransactions()
+      })
+    setIsLoading(false)
+  }
+
+  const deleteTransaction = (id) => {
+    setIsLoading(true)
+    deleteTransactionService({ id })
+      .then(() => {
+        refreshTransactions()
+      })
+    setIsLoading(false)
+  }
+
 
   useEffect(() => {
     refreshTransactions()
   }, [])
 
   return {
-    transactions, isLoading, error, refreshTransactions, createTransaction
+    transactions, isLoading, error, refreshTransactions, createTransaction, updateTransaction, deleteTransaction
 
   }
 }

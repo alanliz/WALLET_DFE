@@ -1,9 +1,9 @@
-import { API_TRANSACTIONS_URL } from '../constants'
+import { API_TRANSACTIONS_URL } from "../constants";
 
-export function getTransactions() {
+export function deleteTransaction({ id }) {
 
-  return fetch(API_TRANSACTIONS_URL, {
-    method: 'GET',
+  return fetch(API_TRANSACTIONS_URL + `/${id}`, {
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     }
@@ -12,4 +12,5 @@ export function getTransactions() {
       if (!res.ok) res.json().then(err => { throw err })
       return res.json()
     })
+
 }
